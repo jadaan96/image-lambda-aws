@@ -1,1 +1,1 @@
-# image-lambda-aws
+# image-lambda
