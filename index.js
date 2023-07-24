@@ -8,7 +8,7 @@ exports.handler = async (event) => {
         const bucketName = event.Records[0].s3.bucket.name;
         const name = event.Records[0].s3.object.key;
         const size = event.Records[0].s3.object.size;
-        const type = event.Records[0].s3.object.key.split('.').pop();
+        const type = event.Records[0].s3.object.key.split(".").pop();
         let image = {
             name,
             size,
@@ -27,7 +27,7 @@ exports.handler = async (event) => {
         const existingImageIndex = objectContent.findIndex(item => item.name === image.name);
 
         if (existingImageIndex !== -1) {
-            objectContent[existingImageIndex] = metadata;
+            objectContent[existingImageIndex] = image;
         } else {
 
             objectContent.push(image)
